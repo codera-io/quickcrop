@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>QuickCrop - Instant Image Resizer for Social Media</title>
+    <meta name="description" content="Instantly resize and crop images for Instagram, YouTube, LinkedIn, Facebook, Twitter, TikTok, and more. No signup required.">
+    <meta name="keywords" content="image resizer, social media images, crop images, instagram resize, youtube thumbnail">
+    
+    <meta property="og:title" content="QuickCrop - Instant Image Resizer">
+    <meta property="og:description" content="Resize images for all social media platforms instantly">
+    
+    <meta name="twitter:title" content="QuickCrop - Instant Image Resizer">
+    <meta name="twitter:description" content="Resize images for all social media platforms instantly">
+
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+    <style type="text/tailwindcss">
+    @layer theme {
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #8b5cf6;
+            --accent-color: #ec4899;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --border-color: #e5e7eb;
+        }
+    }
+
+    @layer base {
+        body {
+            @apply bg-[var(--bg-secondary)] text-[var(--text-primary)] font-sans;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            @apply font-bold;
+        }
+    }
+
+    @layer components {
+        .btn-primary {
+            @apply px-6 py-3 bg-[var(--primary-color)] text-white rounded-lg font-medium hover:opacity-90 transition-opacity;
+        }
+        
+        .btn-secondary {
+            @apply px-6 py-3 bg-white text-[var(--primary-color)] border-2 border-[var(--primary-color)] rounded-lg font-medium hover:bg-[var(--primary-color)] hover:text-white transition-colors;
+        }
+        
+        .card {
+            @apply bg-white rounded-xl shadow-sm border border-[var(--border-color)] p-6;
+        }
+        
+        .platform-chip {
+            @apply px-4 py-2 rounded-full border-2 border-[var(--border-color)] cursor-pointer transition-all hover:border-[var(--primary-color)];
+        }
+        
+        .platform-chip.active {
+            @apply border-[var(--primary-color)] bg-[var(--primary-color)] bg-opacity-10;
+        }
+    }
+
+    @layer utilities {
+        .upload-zone {
+            @apply border-2 border-dashed border-[var(--border-color)] rounded-xl p-12 text-center cursor-pointer hover:border-[var(--primary-color)] transition-colors;
+        }
+        
+        .upload-zone.dragging {
+            @apply border-[var(--primary-color)] bg-[var(--primary-color)] bg-opacity-5;
+        }
+    }
+    </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC9S27X0BG"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-WC9S27X0BG');
+    </script>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel" src="utils/presets.js"></script>
+    <script type="text/babel" src="utils/imageProcessor.js"></script>
+    <script type="text/babel" src="components/Header.js"></script>
+    <script type="text/babel" src="components/UploadZone.js"></script>
+    <script type="text/babel" src="components/PlatformSelector.js"></script>
+    <script type="text/babel" src="components/PreviewGrid.js"></script>
+    <script type="text/babel" src="components/Footer.js"></script>
+    <script type="text/babel" src="app.js"></script>
+</body>
+</html>
